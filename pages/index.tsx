@@ -21,10 +21,22 @@ const Index: NextPageWithLayout = () => {
         justify-content: end;
 
         .my-name {
+          position: relative;
           margin: 0px;
 
           font-size: 96px;
           font-weight: 300;
+
+          &::after {
+            position: absolute;
+            content: '';
+            right: 0px;
+
+            width: 65%;
+            height: 100%;
+
+           border: 1px solid $black-opacity;
+          }
         }
       }
     `}</style>
