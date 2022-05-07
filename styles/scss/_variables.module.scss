@@ -1,0 +1,13 @@
+$white: #FAFEFF;
+$white-opacity: #FAFEFF55;
+
+$black: #010020;
+$black-opacity: #01002055;
+
+:export {
+  white: $white;
+  white-opacity: $white-opacity;
+
+  black: $black;
+  black-opacity: $black-opacity;
+}

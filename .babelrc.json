@@ -10,7 +10,7 @@
               {
                 "sassOptions": {
                   "includePaths": ["./styles"],
-                  "prependData": "@import '~@styles/_variables.scss';"
+                  "data": "@import './styles/scss/_variables.module.scss';"
                 }
               }
             ]
