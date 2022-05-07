@@ -44,6 +44,7 @@ export function Layout({
       </div>
 
       <div className='navigation-bar'>
+        <Divider vertical height='100%' style='margin: 0px 16px;' />
         <div className='button-group'>
           {links.map(link =>(
             <button
@@ -56,6 +57,7 @@ export function Layout({
             </button>
           ))}
         </div>
+        <Divider vertical height='100%' style='margin: 0px 16px;' />
       </div>
 
       <main>
@@ -92,7 +94,17 @@ export function Layout({
           grid-column: 1;
           grid-row: 1/4;
 
+          display: grid;
+          grid-template-rows: 1fr 1fr 1fr;
+          align-items: center;
+          justify-content: start;
+
+
+          height: 100%;
+
           .button-group {
+            margin: 24px 0px;
+
             button {
               position: relative;
               display: flex;
