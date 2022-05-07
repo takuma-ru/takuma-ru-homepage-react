@@ -2,7 +2,7 @@
   区切り線コンポーネント
 */
 
-import { useState } from 'react'
+import React, { useState } from 'react'
 import scssVariable from '../../composables/returnScssVariables'
 
 interface propsInterface {
@@ -12,11 +12,8 @@ interface propsInterface {
   style?: string,
 }
 
-interface stateInterface {
-}
-
-const  Divider = (props: propsInterface) =>  {
-  const [ color, setColor ] = useState(scssVariable(props.color!))
+const Divider: React.FC<propsInterface> = (props) =>  {
+  const [ color, setColor ] = useState<string>(scssVariable(props.color!))
 
   return <>
     <hr

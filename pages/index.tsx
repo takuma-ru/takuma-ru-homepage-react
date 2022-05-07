@@ -6,7 +6,7 @@ const Index: NextPageWithLayout = () => {
   return <>
     <div className='index'>
       <h1 className='my-name'>
-        Hi! I'm takuma-ru.
+        Hi! I&#x27;m takuma-ru.
       </h1>
     </div>
 
