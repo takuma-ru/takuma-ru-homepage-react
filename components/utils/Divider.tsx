@@ -12,7 +12,7 @@ interface propsInterface {
   style?: string,
 }
 
-const Divider: React.FC<propsInterface> = (props) =>  {
+const Divider: React.FC<propsInterface> = (props) => {
   const [ color, setColor ] = useState<string>(scssVariable(props.color!))
 
   return <>

@@ -11,7 +11,7 @@ interface propsInterface {
 interface stateInterface {
 }
 
-const Button: React.FC<propsInterface> = (props) =>  {
+const Button: React.FC<propsInterface> = (props) => {
   return <>
     <button></button>
 

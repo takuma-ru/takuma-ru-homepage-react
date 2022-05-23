@@ -24,18 +24,20 @@ const Index: NextPageWithLayout = () => {
           position: relative;
           margin: 0px;
 
-          font-size: 96px;
+          font-size: 10vmin;
           font-weight: 300;
+          text-align: right;
 
           &::after {
             position: absolute;
             content: '';
-            right: 0px;
 
             width: 65%;
             height: 100%;
 
-           border: 1px solid $black-opacity;
+            transform-origin: top right;
+            transform: translate(-100%, -0%);
+            border: 1px solid $black-opacity;
           }
         }
       }

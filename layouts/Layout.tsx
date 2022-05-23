@@ -2,34 +2,20 @@ import { ReactElement } from 'react'
 import Head from 'next/head'
 import { useRouter } from 'next/router';
 import Divider from '../components/utils/Divider';
+import NavigationBar from '../components/layouts/NavigationBar';
 
 type LayoutProps = Required<{
   readonly children: ReactElement
   readonly metaTitle: String
 }>
 
-interface linkInterface {
-  name: string,
-  path: string,
-}
-
 export function Layout({
   children,
   metaTitle,
 }: LayoutProps) {
   // const
-  const router = useRouter();
-  const links: Array<linkInterface> = [
-    {name: 'Index', path: '/'},
-    {name: 'About', path: '/about'},
-    {name: 'Works', path: '/works'},
-    {name: 'Contact', path: '/contact'},
-  ]
 
   // method
-  const routerPush = (link: string) => {
-    router.push(link)
-  }
 
   return <>
     <div id='layout'>
@@ -43,22 +29,7 @@ export function Layout({
 
       </div>
 
-      <div className='navigation-bar'>
-        <Divider vertical height='100%' style='margin: 0px 16px;' />
-        <div className='button-group'>
-          {links.map(link =>(
-            <button
-              key={link.name}
-              onClick={() => routerPush(link.path)}
-            >
-              <span className='name'>{link.name}</span>
-              <Divider vertical color='white-opacity' />
-              <div className='chip' />
-            </button>
-          ))}
-        </div>
-        <Divider vertical height='100%' style='margin: 0px 16px;' />
-      </div>
+      <NavigationBar />
 
       <main>
         {children}
@@ -72,7 +43,7 @@ export function Layout({
           width: 100vw;
           height: 100vh;
 
-          grid-template-columns: 56px 1fr 56px;
+          grid-template-columns: 72px 1fr 56px;
           grid-template-rows: 56px 1fr 56px;
           align-items: center;
         }
@@ -88,73 +59,6 @@ export function Layout({
           padding: 16px;
 
           color: $black;
-        }
-
-        .navigation-bar {
-          grid-column: 1;
-          grid-row: 1/4;
-
-          display: grid;
-          grid-template-rows: 1fr 1fr 1fr;
-          align-items: center;
-          justify-content: start;
-
-
-          height: 100%;
-
-          .button-group {
-            margin: 24px 0px;
-
-            button {
-              position: relative;
-              display: flex;
-              min-width: 56px;
-              height: 32px;
-
-              margin: 8px 0px;
-              padding: 8px 0px;
-
-              background-color: $black;
-              border: none;
-              justify-content: flex-end;
-              align-items: center;
-              font-family: 'Roboto', 'Noto Sans JP', sans-serif;
-
-              .name {
-                max-width: 0px;
-                max-height: 0px;
-                line-height: 32px;
-                font-size: 0px;
-                font-weight: 300;
-                color: $white;
-
-                margin: 8px 8px;
-
-                transform-origin: center left;
-                transition: all 0.1s ease-in-out;
-              }
-
-              .chip {
-                width: 8px;
-                height: 8px;
-
-                background-color: $white;
-
-                margin: 8px 16px;
-              }
-
-
-              &:hover {
-                height: 56px;
-                .name {
-                  max-width: 9999px;
-                  max-height: 9999px;
-                  font-size: 32px;
-                  margin: 8px 16px;
-                }
-              }
-            }
-          }
         }
 
         .tool-bar {
