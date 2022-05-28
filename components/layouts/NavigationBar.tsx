@@ -4,7 +4,8 @@
 
 import { useRouter } from 'next/router';
 import React from 'react'
-import scssVariable from '../../composables/returnScssVariables'
+import styled from 'styled-components';
+import colors from '../../composables/styles/returnScssVariables'
 
 interface propsInterface {
 }
@@ -33,7 +34,7 @@ const NavigationBar: React.FC<propsInterface> = (props) => {
   }
 
   return <>
-    <div className='navigation-bar'>
+    <NavigationBarMain>
       <div className='button-group'>
         {links.map(link =>(
           <button
@@ -50,71 +51,69 @@ const NavigationBar: React.FC<propsInterface> = (props) => {
           </button>
         ))}
       </div>
-    </div>
-
-    <style lang='scss' scoped jsx>{`
-      .navigation-bar {
-        grid-column: 1;
-        grid-row: 1/4;
-
-        display: grid;
-        grid-template-rows: 1fr;
-        align-items: center;
-        justify-content: start;
-
-        height: 100%;
-
-        .button-group {
-          margin: 24px 0px;
-
-          button {
-            position: relative;
-            display: flex;
-            width: auto;
-            height: max-content;
-
-            margin: 12px 0px;
-            padding: 24px 11px;
-
-            border: none;
-            justify-content: flex-end;
-            align-items: center;
-            font-family: 'Roboto', 'Noto Sans JP', sans-serif;
-            background-color: $white;
-            color: $black;
-            cursor: pointer;
-
-            .name {
-              h3 {
-                margin: 0px;
-
-                writing-mode: vertical-rl;
-                text-orientation: sideways-right;
-              }
-            }
-
-            .chip {
-              width: 2px;
-              height: 40px;
-
-              margin-left: 8px;
-              background-color: $black-opacity;
-            }
-
-          }
-
-          .button-selected {
-            background-color: $black;
-            color: $white;
-            .chip {
-              background-color: $white-opacity;
-            }
-          }
-        }
-      }
-    `}</style>
+    </NavigationBarMain>
   </>
 }
+
+const NavigationBarMain = styled.div`
+  grid-column: 1;
+  grid-row: 1/4;
+
+  display: grid;
+  grid-template-rows: 1fr;
+  align-items: center;
+  justify-content: start;
+
+  height: 100%;
+
+  .button-group {
+    margin: 24px 0px;
+
+    button {
+      position: relative;
+      display: flex;
+      width: auto;
+      height: max-content;
+
+      margin: 12px 0px;
+      padding: 24px 11px;
+
+      border: none;
+      justify-content: flex-end;
+      align-items: center;
+      font-family: 'Roboto', 'Noto Sans JP', sans-serif;
+      background-color: ${colors('white')};
+      color: ${colors('black')};
+      cursor: pointer;
+
+      .name {
+        h3 {
+          margin: 0px;
+
+          writing-mode: vertical-rl;
+          text-orientation: sideways-right;
+        }
+      }
+
+      .chip {
+        width: 2px;
+        height: 40px;
+
+        margin-left: 8px;
+        background-color: ${colors('black-opacity')};
+      }
+
+    }
+
+    .button-selected {
+      background-color: ${colors('black')};
+      color: ${colors('white')};
+      .chip {
+        background-color: ${colors('white-opacity')};
+      }
+    }
+  }
+`
 
 NavigationBar.defaultProps = {
 }

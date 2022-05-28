@@ -3,8 +3,8 @@ import styled from 'styled-components'
 
 import { Layout } from '../layouts/Layout'
 
-import { colors } from '../styles/styledComponents/_variables'
-import { mixins } from '../styles/styledComponents/mixin'
+import colors from '../composables/styles/returnScssVariables'
+import { mixins } from '../composables/styles/mixin'
 
 const About: NextPageWithLayout = () => {
   return <>
@@ -26,7 +26,7 @@ const AboutMain = styled.div`
   align-items: center;
 
   height: 100%;
-  color: ${colors.black};
+  color: ${colors('black')};
 
   ${mixins.screenSm} {
     grid-template-rows: 20% 1fr;

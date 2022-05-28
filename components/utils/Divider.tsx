@@ -3,7 +3,9 @@
 */
 
 import React, { useState } from 'react'
-import scssVariable from '../../composables/returnScssVariables'
+import styled from 'styled-components'
+
+import colors from '../../composables/styles/returnScssVariables'
 
 interface propsInterface {
   vertical?: boolean,
@@ -13,35 +15,33 @@ interface propsInterface {
 }
 
 const Divider: React.FC<propsInterface> = (props) => {
-  const [ color, setColor ] = useState<string>(scssVariable(props.color!))
+  const [ color, setColor ] = useState<string>(colors(props.color!))
+
+  const DividerMain = styled.hr`
+    width: ${props.size};
+    border-top: 2px solid;
+    border-bottom: 0px;
+    margin: 0px;
+    color: ${color};
+    ${props.style}
+  `
+
+  const VerticalMain = styled.hr`
+    width: 1px;
+    height: ${props.size};
+    border-width: 0;
+    margin: 0px;
+    background-color: ${color};
+    ${props.style}
+  `
 
   return <>
-    <hr
-      className={props.vertical ? 'vertical' : 'divider'}
-    />
-
-    {/* scss styled jsx */}
-    <style lang='scss' scoped jsx>{`
-      .divider {
-        width: ${props.size};
-        border-top: 2px solid;
-        border-bottom: 0px;
-        margin: 0px;
-        color: ${color};
-        ${props.style}
-      }
-
-      .vertical {
-        width: 1px;
-        height: ${props.size};
-        border-width: 0;
-        margin: 0px;
-        background-color: ${color};
-        ${props.style}
-      }
-    `}</style>
+    {(() => {
+      return props.vertical ? <VerticalMain /> : <DividerMain />
+    })()}
   </>
 }
+
 
 Divider.defaultProps = {
   vertical: false,

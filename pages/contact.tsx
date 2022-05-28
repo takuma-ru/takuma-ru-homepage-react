@@ -7,13 +7,6 @@ const Contact: NextPageWithLayout = () => {
       contact page
 
     </div>
-
-    {/* scss styled jsx */}
-    <style lang='scss' scoped jsx>{`
-      main {
-        color: $black;
-      }
-    `}</style>
   </>
 }
 

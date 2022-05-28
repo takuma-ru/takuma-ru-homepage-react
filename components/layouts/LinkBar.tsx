@@ -4,7 +4,8 @@
 
 import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react'
-import scssVariable from '../../composables/returnScssVariables'
+import styled from 'styled-components';
+import colors from '../../composables/styles/returnScssVariables'
 import Divider from '../utils/Divider';
 
 interface propsInterface {
@@ -42,7 +43,7 @@ const LinkBar: React.FC<propsInterface> = (props) => {
   },[query, router])
 
   return <>
-    <div className='link-bar'>
+    <LinkBarMain>
       <Divider size='128px' />
       <h3 className='path-name'>
         { links.find(v => v.path === router.pathname )?.name }
@@ -56,41 +57,39 @@ const LinkBar: React.FC<propsInterface> = (props) => {
           return <div className='dot' />
         }
       })()}
-    </div>
-
-    <style lang='scss' scoped jsx>{`
-      .link-bar {
-        grid-column: 1/4;
-        grid-row: 1;
-
-        display: flex;
-        justify-items: flex-start;
-        align-items: center;
-
-        height: 56px;
-
-        .path-name {
-          margin-left: 16px;
-        }
-
-        .dot {
-          width: 8px;
-          height: 8px;
-
-          margin-left: 16px;
-
-          background-color: $black-opacity;
-        }
-
-        .sub-path-name {
-          margin-left: 16px;
-
-          font-size: 16px;
-        }
-      }
-    `}</style>
+    </LinkBarMain>
   </>
 }
+
+const LinkBarMain = styled.div`
+  grid-column: 1/4;
+  grid-row: 1;
+
+  display: flex;
+  justify-items: flex-start;
+  align-items: center;
+
+  height: 56px;
+
+  .path-name {
+    margin-left: 16px;
+  }
+
+  .dot {
+    width: 8px;
+    height: 8px;
+
+    margin-left: 16px;
+
+    background-color: ${colors('black-opacity')};
+  }
+
+  .sub-path-name {
+    margin-left: 16px;
+
+    font-size: 16px;
+  }
+`
 
 LinkBar.defaultProps = {
 }
