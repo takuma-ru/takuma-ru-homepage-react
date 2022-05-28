@@ -9,32 +9,6 @@ $black-opacity-2: #00000B99;
 $background: $white;
 $color: $black-opacity;
 
-/* mixin */
-$sp: 480px;
-$tab: 768px;
-$lap: 1024px;
-
-@mixin sp {
- @media screen and (max-width: ($sp)) {
-   @content;
- }
-}
-// @include sp {}
-
-@mixin tab {
- @media screen and (max-width: ($tab)) {
-   @content;
- }
-}
-// @include tab {}
-
-@mixin lap {
- @media screen and (max-width: ($lap)) {
-   @content;
- }
-}
-// @include lap {}
-
 :export {
   white: $white;
   white-opacity: $white-opacity;
