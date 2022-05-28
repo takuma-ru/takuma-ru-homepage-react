@@ -33,91 +33,86 @@ const NavigationBar: React.FC<propsInterface> = (props) => {
   }
 
   return <>
-      <div className='navigation-bar'>
-        {/* <Divider vertical height='100%' style='margin: 0px 32px;' /> */}
-        <div className='button-group'>
-          {links.map(link =>(
-            <button
-              key={link.name}
-              onClick={() => routerPush(link.path)}
-              className={link.path === router.pathname ? 'button-selected' : ''}
-            >
-              <span className='name'>
-                <p>
-                  {link.name}
-                </p>
-              </span>
-              <div className='chip'></div>
-            </button>
-          ))}
-        </div>
-        {/* <Divider vertical height='100%' style='margin: 0px 36px;' /> */}
+    <div className='navigation-bar'>
+      <div className='button-group'>
+        {links.map(link =>(
+          <button
+            key={link.name}
+            onClick={() => routerPush(link.path)}
+            className={link.path === router.pathname ? 'button-selected' : ''}
+          >
+            <span className='name'>
+              <h3>
+                {link.name}
+              </h3>
+            </span>
+            <div className='chip'></div>
+          </button>
+        ))}
       </div>
+    </div>
 
-      <style lang='scss' scoped jsx>{`
-        .navigation-bar {
-          grid-column: 1;
-          grid-row: 1/4;
+    <style lang='scss' scoped jsx>{`
+      .navigation-bar {
+        grid-column: 1;
+        grid-row: 1/4;
 
-          display: grid;
-          grid-template-rows: 1fr;
-          align-items: center;
-          justify-content: start;
+        display: grid;
+        grid-template-rows: 1fr;
+        align-items: center;
+        justify-content: start;
 
-          height: 100%;
+        height: 100%;
 
-          .button-group {
-            margin: 24px 0px;
+        .button-group {
+          margin: 24px 0px;
 
-            button {
-              position: relative;
-              display: flex;
-              width: auto;
-              height: max-content;
+          button {
+            position: relative;
+            display: flex;
+            width: auto;
+            height: max-content;
 
-              margin: 12px 0px;
-              padding: 24px 12px;
+            margin: 12px 0px;
+            padding: 24px 11px;
 
-              border: none;
-              justify-content: flex-end;
-              align-items: center;
-              font-family: 'Roboto', 'Noto Sans JP', sans-serif;
-              background-color: $white;
-              color: $black;
-              cursor: pointer;
+            border: none;
+            justify-content: flex-end;
+            align-items: center;
+            font-family: 'Roboto', 'Noto Sans JP', sans-serif;
+            background-color: $white;
+            color: $black;
+            cursor: pointer;
 
-              .name {
-                p {
-                  width: 32px;
-                  margin: 0px;
+            .name {
+              h3 {
+                margin: 0px;
 
-                  writing-mode: vertical-rl;
-                  text-orientation: sideways-right;
-                  font-size: 32px;
-                  font-weight: 300;
-                }
+                writing-mode: vertical-rl;
+                text-orientation: sideways-right;
               }
-
-              .chip {
-                width: 2px;
-                height: 40px;
-
-                margin-left: 8px;
-                background-color: $black;
-              }
-
             }
 
-            .button-selected {
-              background-color: $black;
-              color: $white;
-              .chip {
-                background-color: $white;
-              }
+            .chip {
+              width: 2px;
+              height: 40px;
+
+              margin-left: 8px;
+              background-color: $black-opacity;
+            }
+
+          }
+
+          .button-selected {
+            background-color: $black;
+            color: $white;
+            .chip {
+              background-color: $white-opacity;
             }
           }
         }
-      `}</style>
+      }
+    `}</style>
   </>
 }
 

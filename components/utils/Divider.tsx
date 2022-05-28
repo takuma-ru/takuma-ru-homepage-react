@@ -8,7 +8,7 @@ import scssVariable from '../../composables/returnScssVariables'
 interface propsInterface {
   vertical?: boolean,
   color?: string,
-  height? : string,
+  size? : string,
   style?: string,
 }
 
@@ -23,16 +23,18 @@ const Divider: React.FC<propsInterface> = (props) => {
     {/* scss styled jsx */}
     <style lang='scss' scoped jsx>{`
       .divider {
-        border-top: 1px solid;
+        width: ${props.size};
+        border-top: 2px solid;
         border-bottom: 0px;
+        margin: 0px;
         color: ${color};
         ${props.style}
       }
 
       .vertical {
         width: 1px;
-        height: ${props.height};
-        border-width:0;
+        height: ${props.size};
+        border-width: 0;
         margin: 0px;
         background-color: ${color};
         ${props.style}
@@ -44,7 +46,7 @@ const Divider: React.FC<propsInterface> = (props) => {
 Divider.defaultProps = {
   vertical: false,
   color: 'black-opacity',
-  height: '100%',
+  size: '100%',
 }
 
 export default Divider

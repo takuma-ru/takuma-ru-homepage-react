@@ -1,8 +1,39 @@
+/* variables */
 $white: #fffffa;
-$white-opacity: #FAFEFF55;
+$white-opacity: #FAFEFF99;
 
 $black: #00000B;
-$black-opacity: #00000B55;
+$black-opacity: #00000B99;
+$black-opacity-2: #00000B99;
+
+$background: $white;
+$color: $black-opacity;
+
+/* mixin */
+$sp: 480px;
+$tab: 768px;
+$lap: 1024px;
+
+@mixin sp {
+ @media screen and (max-width: ($sp)) {
+   @content;
+ }
+}
+// @include sp {}
+
+@mixin tab {
+ @media screen and (max-width: ($tab)) {
+   @content;
+ }
+}
+// @include tab {}
+
+@mixin lap {
+ @media screen and (max-width: ($lap)) {
+   @content;
+ }
+}
+// @include lap {}
 
 :export {
   white: $white;
@@ -10,4 +41,7 @@ $black-opacity: #00000B55;
 
   black: $black;
   black-opacity: $black-opacity;
+
+  background: $background;
+  color: $color;
 }

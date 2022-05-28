@@ -3,6 +3,7 @@ import Head from 'next/head'
 import { useRouter } from 'next/router';
 import Divider from '../components/utils/Divider';
 import NavigationBar from '../components/layouts/NavigationBar';
+import LinkBar from '../components/layouts/LinkBar';
 
 type LayoutProps = Required<{
   readonly children: ReactElement
@@ -25,9 +26,7 @@ export function Layout({
         <link rel="icon" href="/favicon.ico" />
       </Head>
 
-      <div className='tool-bar'>
-
-      </div>
+      <LinkBar />
 
       <NavigationBar />
 
@@ -43,7 +42,7 @@ export function Layout({
           width: 100vw;
           height: 100vh;
 
-          grid-template-columns: 72px 1fr 56px;
+          grid-template-columns: 56px 1fr 56px;
           grid-template-rows: 56px 1fr 56px;
           align-items: center;
         }

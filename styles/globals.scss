@@ -7,7 +7,7 @@ body {
   margin: 0;
   font-family: 'Roboto', 'Noto Sans JP', sans-serif;
 
-  background-color: $white;
+  background-color: $background;
 }
 
 a {
@@ -17,4 +17,51 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+/* global setting */
+
+h1 {
+  font-size: 48px;
+  line-height: 48px;
+
+  margin: 0px;
+  font-weight: 500;
+}
+
+h2 {
+  font-size: 32px;
+  line-height: 32px;
+
+  margin: 0px;
+  font-weight: 400;
+}
+
+h3 {
+  font-size: 24px;
+  line-height: 24px;
+
+  margin: 0px;
+  font-weight: 400;
+}
+
+h4 {
+  font-size: 20px;
+  line-height: 20px;
+
+  margin: 0px;
+  font-weight: 300;
+}
+
+p {
+  font-size: 20px;
+
+  margin: 0px;
+}
+
+.sub-text {
+  font-size: 20px;
+  font-weight: 100;
+
+  margin: 0px;
 }
