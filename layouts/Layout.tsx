@@ -7,7 +7,6 @@ import LinkBar from '../components/layouts/LinkBar'
 
 import { mixins } from '../composables/styles/mixin'
 import colors from '../composables/styles/returnScssVariables'
-import returnDisplayType from '../composables/returnDisplayType'
 import NavigationDrawer from '../components/layouts/NavigationDrawer'
 import { useMediaQuery } from 'react-responsive'
 
