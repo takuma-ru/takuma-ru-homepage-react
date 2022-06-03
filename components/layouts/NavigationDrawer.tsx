@@ -1,5 +1,5 @@
 /*
-  navigation-barコンポーネント(Layout.tsx専用)
+  navigation-drawerコンポーネント(Layout.tsx専用)
 */
 
 import { useRouter } from 'next/router';
@@ -20,7 +20,7 @@ interface linkInterface {
   to?: string,
 }
 
-const NavigationBar: React.FC<propsInterface> = (props) => {
+const NavigationDrawer: React.FC<propsInterface> = (props) => {
   // const
   const router = useRouter();
   const links: Array<linkInterface> = [
@@ -38,9 +38,9 @@ const NavigationBar: React.FC<propsInterface> = (props) => {
     router.push(link)
   }
 
-  return isLap ? <>
-    <NavigationBarMain>
-      <div className='button-group'>
+  return !isLap ? <>
+    <NavigationDrawerMain>
+      {/* <div className='button-group'>
         {links.map( link => (
           <button
             key={link.name}
@@ -55,13 +55,13 @@ const NavigationBar: React.FC<propsInterface> = (props) => {
             <div className='chip'></div>
           </button>
         ))}
-      </div>
-    </NavigationBarMain>
+      </div> */}
+    </NavigationDrawerMain>
   </> : null
 }
 
-const NavigationBarMain = styled.div`
-  grid-column: 1;
+const NavigationDrawerMain = styled.div`
+  grid-column: 3;
   grid-row: 1/4;
 
   display: grid;
@@ -120,7 +120,7 @@ const NavigationBarMain = styled.div`
   }
 `
 
-NavigationBar.defaultProps = {
+NavigationDrawer.defaultProps = {
 }
 
-export default NavigationBar
+export default NavigationDrawer

@@ -12,6 +12,7 @@ interface propsInterface {
   color?: string,
   size? : string,
   style?: string,
+  thickness?: string,
 }
 
 const Divider: React.FC<propsInterface> = (props) => {
@@ -19,7 +20,7 @@ const Divider: React.FC<propsInterface> = (props) => {
 
   const DividerMain = styled.hr`
     width: ${props.size};
-    border-top: 2px solid;
+    border-top: ${props.thickness} solid;
     border-bottom: 0px;
     margin: 0px;
     color: ${color};
@@ -27,7 +28,7 @@ const Divider: React.FC<propsInterface> = (props) => {
   `
 
   const VerticalMain = styled.hr`
-    width: 1px;
+    width: ${props.thickness};
     height: ${props.size};
     border-width: 0;
     margin: 0px;
@@ -47,6 +48,7 @@ Divider.defaultProps = {
   vertical: false,
   color: 'black-opacity',
   size: '100%',
+  thickness: '2px'
 }
 
 export default Divider

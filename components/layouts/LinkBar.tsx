@@ -2,11 +2,13 @@
   link-barコンポーネント(Layout.tsx専用)
 */
 
-import { useRouter } from 'next/router';
 import React, { useEffect, useState } from 'react'
+import { useRouter } from 'next/router';
 import styled from 'styled-components';
-import colors from '../../composables/styles/returnScssVariables'
+
 import Divider from '../utils/Divider';
+
+import colors from '../../composables/styles/returnScssVariables';
 
 interface propsInterface {
 }
@@ -21,8 +23,8 @@ interface linkInterface {
 
 const LinkBar: React.FC<propsInterface> = (props) => {
   // const
-  const router = useRouter();
-  const query = router.query;
+  const router = useRouter()
+  const query = router.query
   const links: Array<linkInterface> = [
     {name: 'INDEX', path: '/'},
     {name: 'ABOUT', path: '/about'},
@@ -36,6 +38,7 @@ const LinkBar: React.FC<propsInterface> = (props) => {
     router.push(link)
   }
 
+  // lifeCycle
   useEffect(() => {
     if(router.isReady){
       setDocId(query.docId)
@@ -44,7 +47,7 @@ const LinkBar: React.FC<propsInterface> = (props) => {
 
   return <>
     <LinkBarMain>
-      <Divider size='128px' />
+      <Divider size='10%' />
       <h3 className='path-name'>
         { links.find(v => v.path === router.pathname )?.name }
       </h3>
@@ -76,8 +79,8 @@ const LinkBarMain = styled.div`
   }
 
   .dot {
-    width: 8px;
-    height: 8px;
+    width: 4px;
+    height: 4px;
 
     margin-left: 16px;
 

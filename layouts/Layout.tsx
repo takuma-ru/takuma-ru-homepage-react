@@ -1,5 +1,5 @@
-import { ReactElement } from 'react'
-import styled from 'styled-components'
+import { ReactElement, ReactNode } from 'react'
+import styled, { StyledComponent } from 'styled-components'
 import Head from 'next/head'
 
 import NavigationBar from '../components/layouts/NavigationBar'
@@ -7,14 +7,20 @@ import LinkBar from '../components/layouts/LinkBar'
 
 import { mixins } from '../composables/styles/mixin'
 import colors from '../composables/styles/returnScssVariables'
+import returnDisplayType from '../composables/returnDisplayType'
+import NavigationDrawer from '../components/layouts/NavigationDrawer'
+import { useMediaQuery } from 'react-responsive'
 
 type LayoutProps = Required<{
-  readonly children: ReactElement
+  readonly children: ReactNode
   readonly metaTitle: String
 }>
 
 export function Layout({ children, metaTitle }: LayoutProps) {
   // const
+  const isDesktopOrLaptop = useMediaQuery({
+    query: '(min-width: 768px)'
+  })
 
   // method
 
@@ -29,6 +35,7 @@ export function Layout({ children, metaTitle }: LayoutProps) {
       <LinkBar />
 
       <NavigationBar />
+      <NavigationDrawer />
 
       <Main>
         {children}
@@ -50,6 +57,9 @@ const LayoutMain = styled.div`
 const Main = styled.main`
   grid-column: 2;
   grid-row: 2;
+  ${mixins.screenSm} {
+    grid-column: 1/4;
+  }
   justify-self: start;
   align-self: flex-start;
 

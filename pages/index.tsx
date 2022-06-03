@@ -5,7 +5,7 @@ import { Layout } from '../layouts/Layout'
 import Divider from '../components/utils/Divider'
 
 import { mixins } from '../composables/styles/mixin'
-import colors from '../composables/styles/returnScssVariables'
+import { colors } from '../composables/styles/color'
 
 const Index: NextPageWithLayout = () => {
   return <>
@@ -42,7 +42,7 @@ const IndexMain = styled.div`
 
       transform-origin: top right;
       transform: translate(-100%, -0%);
-      border: 1px solid ${colors('black-opacity')};
+      border: 1px solid ${colors.blackOpacity};
     }
   }
 `
