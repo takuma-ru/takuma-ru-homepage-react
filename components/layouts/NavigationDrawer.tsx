@@ -63,7 +63,7 @@ const NavigationDrawer: React.FC<propsInterface> = (props) => {
                     {link.name}
                   </h3>
                 </span>
-                <div className='chip'></div>
+                <span className='chip'/>
               </button>
             ))}
           </div>

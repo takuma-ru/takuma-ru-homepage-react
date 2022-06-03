@@ -76,6 +76,9 @@ const About: NextPageWithLayout = () => {
                   <div className='top'>
                     <h2>takuma-ru</h2>
                     <Divider vertical style='margin: 0px 16px' />
+                    <span className='sub-text'>Ichinoseki National College of Technology</span>
+                  </div>
+                  <div className='bottom'>
                     {hrefs.map(item => (
                       <MediaQuery key={item.hrefName} minWidth={768}>
                         <Link
@@ -84,9 +87,6 @@ const About: NextPageWithLayout = () => {
                         />
                       </MediaQuery>
                     ))}
-                  </div>
-                  <div className='bottom'>
-                    <span className='sub-text'>Ichinoseki National College of Technology</span>
                   </div>
                 </div>
               </div>
@@ -120,6 +120,7 @@ const AboutMain = styled.div`
   }
 
   .contents {
+    position: relative;
     width: 100%;
     height: 100%;
 
@@ -133,6 +134,10 @@ const AboutMain = styled.div`
       display: flex;
       align-items: center;
       justify-items: center;
+      align-content: center;
+      justify-content: center;
+
+      width: 100%;
 
       ${mixins.screenSm} {
         flex-flow: column;
@@ -155,7 +160,13 @@ const AboutMain = styled.div`
           grid-column: 1/3;
           grid-row: 2;
 
-          margin-top: 8px;
+          margin-top: 16px;
+
+          display: flex;
+          align-items: center;
+          justify-items: center;
+          align-content: flex-start;
+          justify-content: flex-start;
         }
       }
     }
