@@ -30,7 +30,7 @@ const NavigationBar: React.FC<propsInterface> = (props) => {
     {name: 'COTACT', path: '/contact'},
   ]
   const isLap = useMediaQuery({
-    query: '(min-width: 768px)'
+    query: '(min-width: 1024px)'
   })
 
   // method

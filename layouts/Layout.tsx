@@ -17,9 +17,6 @@ type LayoutProps = Required<{
 
 export function Layout({ children, metaTitle }: LayoutProps) {
   // const
-  const isDesktopOrLaptop = useMediaQuery({
-    query: '(min-width: 768px)'
-  })
 
   // method
 

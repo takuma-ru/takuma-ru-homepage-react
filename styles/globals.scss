@@ -60,8 +60,10 @@ p {
 }
 
 .sub-text {
-  font-size: 20px;
-  font-weight: 100;
+  height: fit-content;
 
   margin: 0px;
+
+  font-size: 20px;
+  font-weight: 100;
 }

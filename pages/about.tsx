@@ -80,12 +80,11 @@ const About: NextPageWithLayout = () => {
                   </div>
                   <div className='bottom'>
                     {hrefs.map(item => (
-                      <MediaQuery key={item.hrefName} minWidth={768}>
-                        <Link
-                          href={item.url}
-                          hrefName={item.hrefName}
-                        />
-                      </MediaQuery>
+                      <Link
+                        key={item.hrefName}
+                        href={item.url}
+                        hrefName={item.hrefName}
+                      />
                     ))}
                   </div>
                 </div>
@@ -101,22 +100,26 @@ const About: NextPageWithLayout = () => {
 
 const AboutMain = styled.div`
   display: grid;
-  justify-items: center;
   align-items: center;
+  ${mixins.screenSm} {
+    justify-items: start;
+  }
+  ${mixins.screenLap} {
+    justify-items: center;
+  }
 
   height: 100%;
   color: ${colors.black};
 
   ${mixins.screenSm} {
-    grid-template-rows: 10% 1fr;
+    grid-template-rows: 20% 1fr;
   }
-
   ${mixins.screenLap} {
     grid-template-columns: 30% 1fr;
   }
 
   .topic {
-
+    padding: 16px;
   }
 
   .contents {
@@ -124,49 +127,68 @@ const AboutMain = styled.div`
     width: 100%;
     height: 100%;
 
-    padding: 24px;
+    padding: 16px;
 
     display: flex;
     align-items: center;
     justify-items: center;
 
     .profile {
-      display: flex;
+      display: grid;
       align-items: center;
-      justify-items: center;
-      align-content: center;
-      justify-content: center;
+      ${mixins.screenSm} {
+        grid-template-rows: 64px 1fr;
+      }
+
+      ${mixins.screenLap} {
+        grid-template-columns: 128px 1fr;
+      }
 
       width: 100%;
 
-      ${mixins.screenSm} {
-        flex-flow: column;
-      }
-
       .name {
         display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr 1fr;
 
-        margin-left: 24px;
+        ${mixins.screenSm} {
+          margin-left: 0px;
+        }
+        ${mixins.screenLap} {
+          margin-left: 24px;
+        }
+
+        padding: 24px 0px;
 
         .top {
-          grid-column: 1/3;
-
           display: flex;
+          align-items: center;
+          justify-items: center;
+          align-content: flex-start;
         }
 
         .bottom {
-          grid-column: 1/3;
           grid-row: 2;
 
           margin-top: 16px;
 
           display: flex;
-          align-items: center;
+          align-items: flex-start;
           justify-items: center;
-          align-content: flex-start;
-          justify-content: flex-start;
+
+          ${mixins.screenSm} {
+            flex-flow: column;
+
+            div {
+              margin-top: 16px;
+            }
+          }
+
+          ${mixins.screenLap} {
+            grid-template-columns: 128px 1fr;
+
+            div {
+              margin-right: 16px;
+            }
+          }
         }
       }
     }

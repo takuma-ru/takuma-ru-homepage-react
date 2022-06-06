@@ -23,7 +23,7 @@ const Link: React.FC<propsInterface> = (props) => {
 
   // style
   const LinkMain = styled.div`
-    margin: 0px 8px;
+    /* margin: 0px 8px; */
 
     a {
       height: 100%;
@@ -33,14 +33,16 @@ const Link: React.FC<propsInterface> = (props) => {
     }
 
     p {
-      margin-right: 8px
+      margin-right: 8px;
     }
   `
 
   return <>
    <LinkMain>
-      <NextLink href={props.href}>
-        <a>
+      <NextLink
+        href={props.href}
+      >
+        <a target='_blank'>
           <p>{props.hrefName}</p>
           <IoLinkOutline
             color={colors('black-opacity')}

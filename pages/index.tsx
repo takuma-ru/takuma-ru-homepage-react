@@ -23,27 +23,11 @@ const IndexMain = styled.div`
 
   display: flex;
   align-items: center;
-  justify-content: end;
+  justify-content: start;
 
   .my-name {
     position: relative;
     margin: 0px;
-
-    font-size: 10vmin;
-    font-weight: 300;
-    text-align: right;
-
-    &::after {
-      position: absolute;
-      content: '';
-
-      width: 65%;
-      height: 100%;
-
-      transform-origin: top right;
-      transform: translate(-100%, -0%);
-      border: 1px solid ${colors.blackOpacity};
-    }
   }
 `
 

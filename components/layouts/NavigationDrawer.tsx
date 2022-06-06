@@ -26,7 +26,7 @@ const NavigationDrawer: React.FC<propsInterface> = (props) => {
   // const
   const router = useRouter();
   const isLap = useMediaQuery({
-    query: '(min-width: 768px)'
+    query: '(min-width: 1024px)'
   })
   const [isOpen, setIsOpen] = useState(false)
   const links: Array<linkInterface> = [
