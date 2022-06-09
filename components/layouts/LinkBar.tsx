@@ -1,6 +1,6 @@
-/*
-  link-barコンポーネント(Layout.tsx専用)
-*/
+/**
+* link-barコンポーネント(Layout.tsx専用)
+**/
 
 import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router';

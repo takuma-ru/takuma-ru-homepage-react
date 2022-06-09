@@ -11,8 +11,7 @@ import { mixins } from '../composables/styles/mixin'
 import Img from '../components/utils/Img';
 import Divider from '../components/utils/Divider';
 import Link from '../components/utils/Link';
-import returnDisplayType from '../composables/returnDisplayType';
-import MediaQuery from 'react-responsive';
+import Profile from '../components/about/Profile';
 
 const About: NextPageWithLayout = () => {
   // const
@@ -28,22 +27,32 @@ const About: NextPageWithLayout = () => {
       title: 'Career',
     }
   ]
-  const hrefs = [
+  const careerData = [
     {
-      url: 'https://github.com/takuma-ru',
-      hrefName: 'GitHub',
+      title: '一関工業高等専門学校 入学',
+      subTitle: '未来創造工学科 / 情報ソフトウェア系',
+      date: new Date('2018-04'),
     },
     {
-      url: 'https://twitter.com/takumaru_2222',
-      hrefName: 'Twitter',
+      title: 'チームラボ株式会社 アルバイト入社',
+      subTitle: 'Package team / Frontend team',
+      date: new Date('2022-05'),
     },
     {
-      url: 'https://bitbucket.org/takuma-ru',
-      hrefName: 'Bitbucket',
+      title: '一関工業高等専門学校 在籍中',
+      subTitle: '未来創造工学科 / 情報ソフトウェア系',
+      date: new Date(),
+      now: true,
     },
     {
-      url: 'https://play.google.com/store/apps/dev?id=7473198602481823619',
-      hrefName: 'GooglePlay',
+      title: '一関工業高等専門学校 卒業見込み',
+      subTitle: '未来創造工学科 / 情報ソフトウェア系',
+      date: new Date('2023-03'),
+    },
+    {
+      title: 'チームラボ株式会社 入社見込み',
+      subTitle: 'Package team / Frontend team',
+      date: new Date('2023-04'),
     },
   ]
 
@@ -65,29 +74,26 @@ const About: NextPageWithLayout = () => {
         {(() => {
           if (docId === 'profile') {
             return <>
-              <div className='profile'>
-                <Img
-                  src='https://ejrjdzwbpayqlmpyvomf.supabase.co/storage/v1/object/sign/image/NK_v6_sq_3.png?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1cmwiOiJpbWFnZS9OS192Nl9zcV8zLnBuZyIsImlhdCI6MTY1Mzc4NzQxMiwiZXhwIjoxOTY5MTQ3NDEyfQ.IZ_-ZnBgn1_FHSlWabaBu3ft44rsHb7uWs4YsYhNe2s'
-                  circle
-                  smSize='64px'
-                  lapSize='128px'
-                />
-                <div className='name'>
-                  <div className='top'>
-                    <h2>takuma-ru</h2>
-                    <Divider vertical style='margin: 0px 16px' />
-                    <span className='sub-text'>Ichinoseki National College of Technology</span>
+              <Profile />
+            </>
+          } else if (docId === 'career') {
+            return <>
+              <div className='career'>
+                {careerData.map(item => (
+                  <div
+                    className='career-item'
+                    key={item.title}
+                  >
+                    <h1 className='career-item-title'>
+                      aaa
+                    </h1>
+                    <Divider />
+                    <h4 className='career-item-sub-title'>
+                      aaa
+                    </h4>
+                    <p className='career-item-date'></p>
                   </div>
-                  <div className='bottom'>
-                    {hrefs.map(item => (
-                      <Link
-                        key={item.hrefName}
-                        href={item.url}
-                        hrefName={item.hrefName}
-                      />
-                    ))}
-                  </div>
-                </div>
+                ))}
               </div>
             </>
           }
@@ -133,63 +139,10 @@ const AboutMain = styled.div`
     align-items: center;
     justify-items: center;
 
-    .profile {
-      display: grid;
-      align-items: center;
-      ${mixins.screenSm} {
-        grid-template-rows: 64px 1fr;
-      }
+    .career {
 
-      ${mixins.screenLap} {
-        grid-template-columns: 128px 1fr;
-      }
+      &-item {
 
-      width: 100%;
-
-      .name {
-        display: grid;
-
-        ${mixins.screenSm} {
-          margin-left: 0px;
-        }
-        ${mixins.screenLap} {
-          margin-left: 24px;
-        }
-
-        padding: 24px 0px;
-
-        .top {
-          display: flex;
-          align-items: center;
-          justify-items: center;
-          align-content: flex-start;
-        }
-
-        .bottom {
-          grid-row: 2;
-
-          margin-top: 16px;
-
-          display: flex;
-          align-items: flex-start;
-          justify-items: center;
-
-          ${mixins.screenSm} {
-            flex-flow: column;
-
-            div {
-              margin-top: 16px;
-            }
-          }
-
-          ${mixins.screenLap} {
-            grid-template-columns: 128px 1fr;
-
-            div {
-              margin-right: 16px;
-            }
-          }
-        }
       }
     }
   }
