@@ -1,4 +1,4 @@
-# <div style="text-align: center;">CHISK</div>
+# <div style="text-align: center;">takuma-ru's homepage</div>
 <!-- <p align="center">
   <img src="/static/icon.png"  width="256" height="256" alt="nuxt-firebase logo">
 </p> -->
