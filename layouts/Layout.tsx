@@ -1,5 +1,5 @@
-import { ReactElement, ReactNode } from 'react'
-import styled, { StyledComponent } from 'styled-components'
+import { ReactNode } from 'react'
+import styled from 'styled-components'
 import Head from 'next/head'
 
 import NavigationBar from '../components/layouts/NavigationBar'
@@ -8,7 +8,6 @@ import LinkBar from '../components/layouts/LinkBar'
 import { mixins } from '../styles/styledComponents/mixin'
 import colors from '../styles/styledComponents/colors'
 import NavigationDrawer from '../components/layouts/NavigationDrawer'
-import { useMediaQuery } from 'react-responsive'
 
 type LayoutProps = Required<{
   readonly children: ReactNode

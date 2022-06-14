@@ -4,7 +4,7 @@
 
 import { useRouter } from 'next/router';
 import React from 'react'
-import { useMediaQuery } from 'react-responsive';
+import useMedia from "use-media";
 import styled from 'styled-components';
 import colors from '../../styles/styledComponents/colors'
 
@@ -29,9 +29,7 @@ const NavigationBar: React.FC<propsInterface> = (props) => {
     {name: 'WORKS', path: '/works'},
     {name: 'COTACT', path: '/contact'},
   ]
-  const isLap = useMediaQuery({
-    query: '(min-width: 1024px)'
-  })
+  const isLap = useMedia({ minWidth: "1024px" })
 
   // method
   const routerPush = (link: string) => {
@@ -57,7 +55,7 @@ const NavigationBar: React.FC<propsInterface> = (props) => {
         ))}
       </div>
     </NavigationBarMain>
-  </> : null
+  </> : <div />
 }
 
 const NavigationBarMain = styled.div`

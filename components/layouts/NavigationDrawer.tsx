@@ -4,7 +4,7 @@
 
 import { useRouter } from 'next/router';
 import React, { useState } from 'react'
-import { useMediaQuery } from 'react-responsive';
+import useMedia from 'use-media'
 import { IoMenuOutline } from "react-icons/io5";
 
 import styled from 'styled-components';
@@ -25,9 +25,7 @@ interface linkInterface {
 const NavigationDrawer: React.FC<propsInterface> = (props) => {
   // const
   const router = useRouter();
-  const isLap = useMediaQuery({
-    query: '(min-width: 1024px)'
-  })
+  const isLap = useMedia({ minWidth: "1024px" })
   const [isOpen, setIsOpen] = useState(false)
   const links: Array<linkInterface> = [
     {name: 'INDEX', path: '/'},
@@ -70,7 +68,7 @@ const NavigationDrawer: React.FC<propsInterface> = (props) => {
         </div>
       )}
     </NavigationDrawerMain>
-  </> : null
+  </> : <div />
 }
 
 const NavigationDrawerMain = styled.div`

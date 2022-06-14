@@ -32,7 +32,7 @@ const Link: React.FC<propsInterface> = (props) => {
       align-items: center;
     }
 
-    p {
+    span {
       margin-right: 8px;
     }
   `
@@ -43,7 +43,7 @@ const Link: React.FC<propsInterface> = (props) => {
         href={props.href}
       >
         <a target='_blank'>
-          <p>{props.hrefName}</p>
+          <span>{props.hrefName}</span>
           <IoLinkOutline
             color={colors('black-opacity')}
             size='20px'
