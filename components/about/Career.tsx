@@ -10,7 +10,7 @@ import Divider from '../utils/Divider';
 import Img from '../utils/Img';
 import Link from '../utils/Link';
 
-import { colors } from '../../styles/styledComponents/colorTheme';
+import colors from '../../styles/styledComponents/colors';
 import { mixins } from '../../styles/styledComponents/mixin'
 
 
