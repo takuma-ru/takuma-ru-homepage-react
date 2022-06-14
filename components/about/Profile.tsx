@@ -10,8 +10,8 @@ import Divider from '../utils/Divider';
 import Img from '../utils/Img';
 import Link from '../utils/Link';
 
-import { colors } from '../../composables/styles/color';
-import { mixins } from '../../composables/styles/mixin'
+import { colors } from '../../styles/styledComponents/colorTheme';
+import { mixins } from '../../styles/styledComponents/mixin'
 
 
 interface propsInterface {
@@ -60,7 +60,7 @@ const Profile: React.FC<propsInterface> = (props) => {
       />
       <div className='name'>
         <div className='name-top'>
-          <h2>takuma-ru</h2>
+          <h2 style={{ whiteSpace: 'nowrap' }}>takuma-ru</h2>
           <Divider vertical style='margin: 0px 16px' />
           <span className='sub-text'>Ichinoseki National College of Technology</span>
         </div>

@@ -7,7 +7,7 @@ import NextLink from 'next/link'
 import styled from 'styled-components'
 import { IoLinkOutline } from 'react-icons/io5'
 
-import colors from '../../composables/styles/returnScssVariables'
+import colors from '../../styles/styledComponents/colors'
 
 interface propsInterface {
   href: string,

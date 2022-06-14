@@ -8,7 +8,7 @@ import { useMediaQuery } from 'react-responsive';
 import { IoMenuOutline } from "react-icons/io5";
 
 import styled from 'styled-components';
-import colors from '../../composables/styles/returnScssVariables'
+import colors from '../../styles/styledComponents/colors'
 
 interface propsInterface {
 }

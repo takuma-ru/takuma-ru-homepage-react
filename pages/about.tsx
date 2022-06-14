@@ -5,13 +5,15 @@ import styled from 'styled-components'
 
 import { Layout } from '../layouts/Layout'
 
-import { colors } from '../composables/styles/color';
-import { mixins } from '../composables/styles/mixin'
+import colors from '../styles/styledComponents/colors'
+import { mixins } from '../styles/styledComponents/mixin'
 
 import Img from '../components/utils/Img';
 import Divider from '../components/utils/Divider';
 import Link from '../components/utils/Link';
 import Profile from '../components/about/Profile';
+import Career from '../components/about/Career';
+import Icon from '../components/utils/Icon';
 
 const About: NextPageWithLayout = () => {
   // const
@@ -25,34 +27,6 @@ const About: NextPageWithLayout = () => {
     {
       docId: 'career',
       title: 'Career',
-    }
-  ]
-  const careerData = [
-    {
-      title: '一関工業高等専門学校 入学',
-      subTitle: '未来創造工学科 / 情報ソフトウェア系',
-      date: new Date('2018-04'),
-    },
-    {
-      title: 'チームラボ株式会社 アルバイト入社',
-      subTitle: 'Package team / Frontend team',
-      date: new Date('2022-05'),
-    },
-    {
-      title: '一関工業高等専門学校 在籍中',
-      subTitle: '未来創造工学科 / 情報ソフトウェア系',
-      date: new Date(),
-      now: true,
-    },
-    {
-      title: '一関工業高等専門学校 卒業見込み',
-      subTitle: '未来創造工学科 / 情報ソフトウェア系',
-      date: new Date('2023-03'),
-    },
-    {
-      title: 'チームラボ株式会社 入社見込み',
-      subTitle: 'Package team / Frontend team',
-      date: new Date('2023-04'),
     },
   ]
 
@@ -67,37 +41,25 @@ const About: NextPageWithLayout = () => {
 
   return <>
     <AboutMain>
+      <div className='arrow-button-prev'>
+        <button>prev</button>
+      </div>
+
       <div className='topic'>
         <h1>{docments.find(v => v.docId === docId)?.title}</h1>
       </div>
       <div className='contents'>
         {(() => {
           if (docId === 'profile') {
-            return <>
-              <Profile />
-            </>
+            return <Profile />
           } else if (docId === 'career') {
-            return <>
-              <div className='career'>
-                {careerData.map(item => (
-                  <div
-                    className='career-item'
-                    key={item.title}
-                  >
-                    <h1 className='career-item-title'>
-                      aaa
-                    </h1>
-                    <Divider />
-                    <h4 className='career-item-sub-title'>
-                      aaa
-                    </h4>
-                    <p className='career-item-date'></p>
-                  </div>
-                ))}
-              </div>
-            </>
+            return <Career />
           }
         })()}
+      </div>
+
+      <div className='arrow-button-next'>
+        <button>next</button>
       </div>
 
     </AboutMain>
@@ -107,28 +69,31 @@ const About: NextPageWithLayout = () => {
 const AboutMain = styled.div`
   display: grid;
   align-items: center;
+
+  height: 100%;
+  color: ${colors('black')};
+
   ${mixins.screenSm} {
     justify-items: start;
+    grid-template-rows: auto auto 1fr auto;
   }
   ${mixins.screenLap} {
     justify-items: center;
-  }
-
-  height: 100%;
-  color: ${colors.black};
-
-  ${mixins.screenSm} {
-    grid-template-rows: 20% 1fr;
-  }
-  ${mixins.screenLap} {
+    grid-template-rows: auto 1fr auto;
     grid-template-columns: 30% 1fr;
   }
 
   .topic {
+    ${mixins.screenLap} {
+      grid-row: 2;
+    }
     padding: 16px;
   }
 
   .contents {
+    ${mixins.screenLap} {
+      grid-row: 2;
+    }
     position: relative;
     width: 100%;
     height: 100%;
@@ -138,11 +103,20 @@ const AboutMain = styled.div`
     display: flex;
     align-items: center;
     justify-items: center;
+  }
 
-    .career {
+  .arrow-button {
+    &-prev {
+      ${mixins.screenLap} {
+        grid-column: 1/3;
+        grid-row: 1;
+      }
+    }
 
-      &-item {
-
+    &-next {
+      ${mixins.screenLap} {
+        grid-column: 1/3;
+        grid-row: 3;
       }
     }
   }

@@ -6,7 +6,7 @@ import { useRouter } from 'next/router';
 import React from 'react'
 import { useMediaQuery } from 'react-responsive';
 import styled from 'styled-components';
-import colors from '../../composables/styles/returnScssVariables'
+import colors from '../../styles/styledComponents/colors'
 
 interface propsInterface {
 }

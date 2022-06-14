@@ -3,7 +3,7 @@
 */
 
 import React from 'react'
-import { colors } from '../../composables/styles/color'
+import { colors } from '../../styles/styledComponents/colorTheme'
 
 interface propsInterface {
 }

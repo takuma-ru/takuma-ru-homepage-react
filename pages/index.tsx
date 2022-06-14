@@ -4,8 +4,8 @@ import styled from 'styled-components'
 import { Layout } from '../layouts/Layout'
 import Divider from '../components/utils/Divider'
 
-import { mixins } from '../composables/styles/mixin'
-import { colors } from '../composables/styles/color'
+import { mixins } from '../styles/styledComponents/mixin'
+import colors from '../styles/styledComponents/colors'
 
 const Index: NextPageWithLayout = () => {
   return <>

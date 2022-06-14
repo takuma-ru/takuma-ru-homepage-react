@@ -5,8 +5,8 @@ import Head from 'next/head'
 import NavigationBar from '../components/layouts/NavigationBar'
 import LinkBar from '../components/layouts/LinkBar'
 
-import { mixins } from '../composables/styles/mixin'
-import colors from '../composables/styles/returnScssVariables'
+import { mixins } from '../styles/styledComponents/mixin'
+import colors from '../styles/styledComponents/colors'
 import NavigationDrawer from '../components/layouts/NavigationDrawer'
 import { useMediaQuery } from 'react-responsive'
 

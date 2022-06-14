@@ -6,8 +6,8 @@ import React from 'react'
 import Image from 'next/image';
 import styled from 'styled-components'
 
-import colors from '../../composables/styles/returnScssVariables'
-import { mixins } from '../../composables/styles/mixin'
+import colors from '../../styles/styledComponents/colors'
+import { mixins } from '../../styles/styledComponents/mixin'
 
 interface propsInterface {
   src: string,

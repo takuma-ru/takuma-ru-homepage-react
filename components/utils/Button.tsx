@@ -3,7 +3,7 @@
 */
 
 import React from 'react'
-import colors from '../../composables/styles/returnScssVariables'
+import colors from '../../styles/styledComponents/colors'
 
 interface propsInterface {
 }

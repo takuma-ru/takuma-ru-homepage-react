@@ -3,22 +3,28 @@
 */
 
 import React from 'react'
-import colors from '../../composables/styles/returnScssVariables'
+import { IconType } from 'react-icons'
+
 
 interface propsInterface {
+  size?: string,
+  color?: string,
 }
 
 interface stateInterface {
 }
 
 const Button: React.FC<propsInterface> = (props) => {
-  const ioIcon = require('react-icons')
+  const reactIcons = require('react-icons/io5')
+  const Icon: IconType = reactIcons['IoAccessibilityOutline']
   return <>
-    <button></button>
+    <Icon size={props.size} color={props.color}></Icon>
   </>
 }
 
 Button.defaultProps = {
+  size: '24px',
+  color: 'black',
 }
 
 export default Button

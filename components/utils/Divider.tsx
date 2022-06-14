@@ -5,7 +5,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 
-import colors from '../../composables/styles/returnScssVariables'
+import colors from '../../styles/styledComponents/colors'
 
 interface propsInterface {
   vertical?: boolean,

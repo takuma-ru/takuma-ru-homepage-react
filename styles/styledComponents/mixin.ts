@@ -1,3 +1,7 @@
+/**
+ * mixin
+ */
+
 const screenSm = () => {
   return `@media screen and ( min-width: 240px ) and ( max-width: 1024px )`
 }

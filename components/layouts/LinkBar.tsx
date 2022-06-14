@@ -8,7 +8,7 @@ import styled from 'styled-components';
 
 import Divider from '../utils/Divider';
 
-import colors from '../../composables/styles/returnScssVariables';
+import colors from '../../styles/styledComponents/colors';
 
 interface propsInterface {
 }
