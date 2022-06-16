@@ -8,9 +8,9 @@ import colors from '../../styles/styledComponents/colors'
 
 
 interface propsInterface {
-  icon: string,
-  size: string,
-  color: string,
+  icon?: string,
+  size?: string,
+  color?: string,
 }
 
 interface stateInterface {
@@ -18,9 +18,9 @@ interface stateInterface {
 
 const Button: React.FC<propsInterface> = (props) => {
   const reactIcons = require('react-icons/io5')
-  const Icon: IconType = reactIcons[props.icon]
+  const Icon: IconType = reactIcons[props.icon!]
   return <>
-    <Icon size={props.size} color={colors(props.color)}></Icon>
+    <Icon size={props.size} color={colors(props.color!)}></Icon>
   </>
 }
 

@@ -14,7 +14,7 @@ import Link from '../components/utils/Link';
 import Profile from '../components/about/Profile';
 import Career from '../components/about/Career';
 import Icon from '../components/utils/Icon';
-
+import Button from '../components/utils/Button';
 const About: NextPageWithLayout = () => {
   // const
   const router = useRouter()
@@ -42,7 +42,12 @@ const About: NextPageWithLayout = () => {
   return <>
     <AboutMain>
       <div className='arrow-button-prev'>
-        <button>prev</button>
+        <Button
+          type='vertical'
+          color='transparent'
+          icon='IoChevronUpSharp'
+          child={docments[docments.findIndex(v => v.docId === docId) - 1]?.title}
+        />
       </div>
 
       <div className='topic'>
@@ -59,7 +64,12 @@ const About: NextPageWithLayout = () => {
       </div>
 
       <div className='arrow-button-next'>
-        <button>next</button>
+        <Button
+          type='vertical'
+          color='transparent'
+          icon='IoChevronDownSharp'
+          child={docments[docments.findIndex(v => v.docId === docId) + 1]?.title}
+        />
       </div>
 
     </AboutMain>
@@ -108,14 +118,12 @@ const AboutMain = styled.div`
   .arrow-button {
     &-prev {
       ${mixins.screenLap} {
-        grid-column: 1/3;
         grid-row: 1;
       }
     }
 
     &-next {
       ${mixins.screenLap} {
-        grid-column: 1/3;
         grid-row: 3;
       }
     }
