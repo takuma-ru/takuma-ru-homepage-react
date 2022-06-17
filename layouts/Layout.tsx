@@ -54,6 +54,7 @@ const Main = styled.main`
   grid-row: 2;
   ${mixins.screenSm} {
     grid-column: 1/4;
+    grid-row: 2/4;
   }
   justify-self: start;
   align-self: flex-start;

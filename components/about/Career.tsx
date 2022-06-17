@@ -3,7 +3,6 @@
 **/
 
 import React, { useEffect, useState } from 'react'
-import { useRouter } from 'next/router';
 import styled from 'styled-components';
 
 import Divider from '../utils/Divider';
@@ -64,7 +63,11 @@ const Career: React.FC<propsInterface> = (props) => {
 
   return <>
     <CareerMain>
-
+      {careerData.map( (career, index) => (
+        <div key={index} className='career-block'>
+          <h3>{ career.title }</h3>
+        </div>
+      ))}
     </CareerMain>
   </>
 }
@@ -72,60 +75,14 @@ const Career: React.FC<propsInterface> = (props) => {
 const CareerMain = styled.div`
   display: grid;
   align-items: center;
-  ${mixins.screenSm} {
-    grid-template-rows: 64px 1fr;
-  }
-
-  ${mixins.screenLap} {
-    grid-template-columns: 128px 1fr;
-  }
 
   width: 100%;
 
-  .name {
-    display: grid;
+  .career-block {
+    display: flex;
+    align-items: center;
 
-    ${mixins.screenSm} {
-      margin-left: 0px;
-    }
-    ${mixins.screenLap} {
-      margin-left: 24px;
-    }
-
-    padding: 24px 0px;
-
-    &-top {
-      display: flex;
-      align-items: center;
-      justify-items: center;
-      align-content: flex-start;
-    }
-
-    &-bottom {
-      grid-row: 2;
-
-      margin-top: 16px;
-
-      display: flex;
-      align-items: flex-start;
-      justify-items: center;
-
-      ${mixins.screenSm} {
-        flex-flow: column;
-
-        div {
-          margin-top: 16px;
-        }
-      }
-
-      ${mixins.screenLap} {
-        grid-template-columns: 128px 1fr;
-
-        div {
-          margin-right: 16px;
-        }
-      }
-    }
+    height: 64px;
   }
 `
 

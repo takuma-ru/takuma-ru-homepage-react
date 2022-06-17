@@ -146,7 +146,7 @@ const AboutMain = styled.div`
 
   .contents {
     ${mixins.screenLap} {
-      grid-row: 2;
+      grid-row: 1/4;
     }
     position: relative;
     width: 100%;
