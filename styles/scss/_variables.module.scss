@@ -4,7 +4,8 @@ $white-opacity: #FAFEFF99;
 
 $black: #00000B;
 $black-opacity: #00000B99;
-$black-opacity-2: #00000B99;
+$black-opacity-2: #00000b4B;
+$black-opacity-3: #00000b19;
 
 $background: $white;
 $color: $black-opacity;
@@ -15,6 +16,8 @@ $color: $black-opacity;
 
   black: $black;
   black-opacity: $black-opacity;
+  black-opacity-2: $black-opacity-2;
+  black-opacity-3: $black-opacity-3;
 
   background: $background;
   color: $color;

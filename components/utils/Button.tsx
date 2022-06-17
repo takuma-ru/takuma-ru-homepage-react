@@ -12,6 +12,7 @@ interface propsInterface {
   type?: 'default' | 'vertical',
   color: string,
   icon?: string,
+  iconTop?: boolean,
   child?: ReactNode | string | number,
   onClick?: () => void,
 }
@@ -26,20 +27,41 @@ const Button: React.FC<propsInterface> = (props) => {
     display: inline-flex;
     align-items: center;
 
+    position: relative;
     padding: 10px 24px;
 
     font-size: 16px;
     line-height: 20px;
 
     border: none;
-    background-color: ${colors(props.color)};
-    color: ${luminanceDependsColor(props.color)};
+    background-color: ${ colors(props.color) };
+    color: ${ luminanceDependsColor(props.color) };
     font-family: 'Roboto', 'Noto Sans JP', sans-serif;
 
     cursor: pointer;
+    -webkit-tap-highlight-color: #00000000;
+
+    :hover::after {
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      top: 0%;
+      left: 0%;
+
+      content: '';
+      background-color: ${ colors('black-opacity-3') };
+    }
+
+    :focus {
+      outline: none;
+    }
   `
   const ButtonVertical = styled(Button)`
     flex-flow: column;
+
+    span {
+      order: ${ props.iconTop ? 1 : 0 };
+    }
   `
 
   return <>

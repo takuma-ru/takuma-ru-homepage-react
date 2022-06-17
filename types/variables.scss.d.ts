@@ -5,6 +5,8 @@ declare module '*.scss' {
     whiteOpacity: string;
     black: string;
     blackOpacity: string;
+    blackOpacity2: string;
+    blackOpacity2: string;
   }
 
   export default content

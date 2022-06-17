@@ -15,11 +15,17 @@ import Profile from '../components/about/Profile';
 import Career from '../components/about/Career';
 import Icon from '../components/utils/Icon';
 import Button from '../components/utils/Button';
+
+interface docmentsInterface {
+  docId: string,
+  title: string,
+}
+
 const About: NextPageWithLayout = () => {
   // const
   const router = useRouter()
   const query = router.query
-  const docments = [
+  const docments: Array<docmentsInterface> = [
     {
       docId: 'profile',
       title: 'Profile',
@@ -28,9 +34,23 @@ const About: NextPageWithLayout = () => {
       docId: 'career',
       title: 'Career',
     },
+    {
+      docId: 'skills',
+      title: 'Skills',
+    },
   ]
 
+  const [nowDocment, setNowDocment] = useState<docmentsInterface>({
+    docId: 'profile',
+    title: 'Profile',
+  })
+
   const [docId, setDocId] = useState<string |string[] | undefined>(undefined)
+
+  // method
+  const routerPush = (link: string) => {
+    router.push(link)
+  }
 
   // lifeCycle
   useEffect(() => {
@@ -42,12 +62,20 @@ const About: NextPageWithLayout = () => {
   return <>
     <AboutMain>
       <div className='arrow-button-prev'>
-        <Button
-          type='vertical'
-          color='transparent'
-          icon='IoChevronUpSharp'
-          child={docments[docments.findIndex(v => v.docId === docId) - 1]?.title}
-        />
+        {(() => {
+          if (docments[docments.findIndex(v => v.docId === docId) - 1]) {
+            return <>
+              <Button
+                type='vertical'
+                color='transparent'
+                icon='IoChevronUpSharp'
+                iconTop
+                child={docments[docments.findIndex(v => v.docId === docId) - 1]?.title}
+                onClick={() => { routerPush('?docId=' + docments[docments.findIndex(v => v.docId === docId) - 1]?.docId) }}
+              />
+            </>
+          }
+        })()}
       </div>
 
       <div className='topic'>
@@ -64,14 +92,29 @@ const About: NextPageWithLayout = () => {
       </div>
 
       <div className='arrow-button-next'>
-        <Button
-          type='vertical'
-          color='transparent'
-          icon='IoChevronDownSharp'
-          child={docments[docments.findIndex(v => v.docId === docId) + 1]?.title}
-        />
+        {(() => {
+          if (docments[docments.findIndex(v => v.docId === docId) + 1]) {
+            return <>
+              <Button
+                type='vertical'
+                color='transparent'
+                icon='IoChevronDownSharp'
+                child={docments[docments.findIndex(v => v.docId === docId) + 1]?.title}
+                onClick={() => { routerPush('?docId=' + docments[docments.findIndex(v => v.docId === docId) + 1]?.docId) }}
+              />
+            </>
+          }
+        })()}
       </div>
 
+      <div className='step-bar-wrapper'>
+        {docments.map( docment => (
+          <div
+            key={docment.docId}
+            className={ docment.docId === docId ? 'step-bar-slect' : 'step-bar' }
+          />
+        ))}
+      </div>
     </AboutMain>
   </>
 }
@@ -80,6 +123,7 @@ const AboutMain = styled.div`
   display: grid;
   align-items: center;
 
+  position: relative;
   height: 100%;
   color: ${colors('black')};
 
@@ -126,6 +170,32 @@ const AboutMain = styled.div`
       ${mixins.screenLap} {
         grid-row: 3;
       }
+    }
+  }
+
+  .step-bar-wrapper {
+    display: flex;
+    flex-flow: column;
+
+    position: absolute;
+    right: -8px;
+  }
+
+  .step-bar {
+    width: 4px;
+    height: 6vh;
+
+    margin: 4px 0px;
+
+    background-color: ${colors('black-opacity-2')};
+
+    &-slect {
+      width: 4px;
+      height: 6vh;
+
+      margin: 4px 0px;
+
+      background-color: ${colors('black')};
     }
   }
 `
