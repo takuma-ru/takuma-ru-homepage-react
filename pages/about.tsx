@@ -148,15 +148,21 @@ const AboutMain = styled.div`
     ${mixins.screenLap} {
       grid-row: 1/4;
     }
+    display: flex;
+    align-items: center;
+    justify-items: center;
+
     position: relative;
     width: 100%;
     height: 100%;
 
     padding: 16px;
 
-    display: flex;
-    align-items: center;
-    justify-items: center;
+    overflow-y: scroll;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar{
+      display: none;
+    }
   }
 
   .arrow-button {

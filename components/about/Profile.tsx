@@ -61,7 +61,7 @@ const Profile: React.FC<propsInterface> = (props) => {
       <div className='name'>
         <div className='name-top'>
           <h2 style={{ whiteSpace: 'nowrap' }}>takuma-ru</h2>
-          <Divider vertical style='margin: 0px 16px' />
+          <Divider vertical style={{ margin: '0px 16px'}} />
           <span className='sub-text'>Ichinoseki National College of Technology</span>
         </div>
         <div className='name-bottom'>

@@ -3,7 +3,7 @@
 */
 
 import React, { useState } from 'react'
-import styled from 'styled-components'
+import styled, { CSSObject } from 'styled-components'
 
 import colors from '../../styles/styledComponents/colors'
 
@@ -11,7 +11,7 @@ interface propsInterface {
   vertical?: boolean,
   color?: string,
   size? : string,
-  style?: string,
+  style?: CSSObject,
   thickness?: string,
 }
 
