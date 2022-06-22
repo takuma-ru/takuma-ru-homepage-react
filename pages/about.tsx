@@ -145,9 +145,6 @@ const AboutMain = styled.div`
   }
 
   .contents {
-    ${mixins.screenLap} {
-      grid-row: 1/4;
-    }
     display: flex;
     align-items: center;
     justify-items: center;
@@ -158,10 +155,10 @@ const AboutMain = styled.div`
 
     padding: 16px;
 
-    overflow-y: scroll;
-    -ms-overflow-style: none;
-    &::-webkit-scrollbar{
-      display: none;
+    overflow-y: auto;
+
+    ${mixins.screenLap} {
+      grid-row: 1/4;
     }
   }
 

@@ -39,12 +39,12 @@ const Career: React.FC<propsInterface> = (props) => {
     {
       title:  <><span>チームラボ株式会社</span> <span>アルバイト入社</span></>,
       subTitle:  <><span>Package team</span> / <span>Frontend team</span></>,
-      date: new Date('2022'),
+      date: new Date('2022-5'),
     },
     {
       title:  <><span>一関工業高等専門学校</span> <span>入学</span></>,
       subTitle:  <><span>未来創造工学科</span> / <span>情報ソフトウェア系</span></>,
-      date: new Date('2018'),
+      date: new Date('2018-4'),
     },
   ]
 
@@ -73,20 +73,20 @@ const Career: React.FC<propsInterface> = (props) => {
               }
             })()}
             <h4>{career.subTitle}</h4>
-            <p className='date'>{career.date.getFullYear()}</p>
+            <p className='date'>{career.date.getFullYear() + '-' + (career.date.getMonth() + 1)}</p>
+            {(() => {
+              if (index != careerData.length - 1) {
+                return <div className='divider'>
+                  <Divider
+                    vertical
+                    size='74px'
+                    color='black-opacity-3'
+                    style={{ margin: '16px 18px' }}
+                  />
+                </div>
+              }
+            })()}
           </div>
-          {(() => {
-            if (index != careerData.length - 1) {
-              return <>
-                <Divider
-                  vertical
-                  size='32px'
-                  color='black-opacity-3'
-                  style={{ margin: '0px 16px' }}
-                />
-              </>
-            }
-          })()}
         </>
       ))}
     </CareerMain>
@@ -95,12 +95,17 @@ const Career: React.FC<propsInterface> = (props) => {
 
 const CareerMain = styled.div`
   display: grid;
-  align-items: center;
 
+  position: relative;
   width: 100%;
+
+  ${mixins.screenSm} {
+    align-self: start;
+  }
 
   .career-block {
     display: grid;
+    grid-template-rows: auto auto;
     grid-template-columns: 42px 1fr 34px 1fr auto;
     align-items: center;
 
@@ -126,11 +131,15 @@ const CareerMain = styled.div`
     .date {
       color: ${colors('black-opacity-2')};
     }
+
+    .divider {
+      grid-row: 2;
+    }
   }
 
   ${mixins.screenSm} {
     .career-block {
-      grid-row: auto 42px 42px;
+      grid-row: auto 42px 42px auto;
       grid-template-columns: 42px 1fr;
       flex-flow: column;
 
@@ -151,6 +160,11 @@ const CareerMain = styled.div`
 
       .date {
         grid-row: 1;
+        grid-column: 1/3;
+      }
+
+      .divider {
+        grid-row: 3/5;
       }
     }
   }

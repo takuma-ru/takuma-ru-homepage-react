@@ -1,11 +1,20 @@
 /* variables */
 $white: #fffffa;
 $white-opacity: #FAFEFF99;
+$white-opacity-2: #FAFEFF4B;
 
 $black: #00000B;
 $black-opacity: #00000B99;
 $black-opacity-2: #00000b4B;
 $black-opacity-3: #00000b19;
+
+$cyan: #49CFD8;
+$cyan-opacity: #49CFD899;
+$cyan-opacity-2: #49CFD84B;
+
+$red: #EE694B;
+$red-opacity: #EE694B99;
+$red-opacity-2: #EE694B4B;
 
 $background: $white;
 $color: $black-opacity;
@@ -13,11 +22,20 @@ $color: $black-opacity;
 :export {
   white: $white;
   white-opacity: $white-opacity;
+  white-opacity-2: $white-opacity-2;
 
   black: $black;
   black-opacity: $black-opacity;
   black-opacity-2: $black-opacity-2;
   black-opacity-3: $black-opacity-3;
+
+  cyan: $cyan;
+  cyan-opacity: $cyan-opacity;
+  cyan-opacity-2: $cyan-opacity-2;
+
+  red: $red;
+  red-opacity: $red-opacity;
+  red-opacity-2: $red-opacity-2;
 
   background: $background;
   color: $color;
