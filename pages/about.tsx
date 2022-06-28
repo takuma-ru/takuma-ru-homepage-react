@@ -15,6 +15,7 @@ import Profile from '../components/about/Profile';
 import Career from '../components/about/Career';
 import Icon from '../components/utils/Icon';
 import Button from '../components/utils/Button';
+import Skills from '../components/about/Skills';
 
 interface docmentsInterface {
   docId: string,
@@ -87,6 +88,8 @@ const About: NextPageWithLayout = () => {
             return <Profile />
           } else if (docId === 'career') {
             return <Career />
+          } else if (docId === 'skills') {
+            return <Skills />
           }
         })()}
       </div>
@@ -149,7 +152,6 @@ const AboutMain = styled.div`
     align-items: center;
     justify-items: center;
 
-    position: relative;
     width: 100%;
     height: 100%;
 

@@ -45,7 +45,7 @@ const LayoutMain = styled.div`
   height: 100vh;
 
   grid-template-columns: 56px 1fr 56px;
-  grid-template-rows: 56px 1fr 56px;
+  grid-template-rows: 56px calc(100vh - 56px - 56px) 56px;
   align-items: center;
 `
 

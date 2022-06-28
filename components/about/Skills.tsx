@@ -2,7 +2,7 @@
 * link-barコンポーネント(Layout.tsx専用)
 **/
 
-import React, { useEffect, useState } from 'react'
+import React, { ReactNode, useEffect, useState } from 'react'
 import { useRouter } from 'next/router';
 import styled from 'styled-components';
 
@@ -20,15 +20,53 @@ interface propsInterface {
 interface stateInterface {
 }
 
-interface careerDataInterface {
+interface skillDataInterface {
+  /*
+    title: 技術名
+    skillLevel: スキルレベル
+      > 0: 初学
+      > 1: 基礎
+      > 2: 基礎＋α
+      > 3: 個人開発
+      > 4: 指導（人に教える）
+      > 5: 実務
+    description?: ReactNode | string,
+    chips?: Array<string>
+  */
   title: string,
-  subTitle: string,
-  date: Date,
-  now?: boolean,
+  skillLevel: 0 | 1 | 2 | 3 | 4 | 5,
+  description?: ReactNode | string,
+  chips?: Array<string>
 }
 
 const Skills: React.FC<propsInterface> = (props) => {
   // const
+  const skillData: skillDataInterface[] = [
+    {
+      title: 'Vue.js',
+      skillLevel: 5,
+      description: '~ Vue3',
+      chips: ['framework']
+    },
+    {
+      title: 'Nuxt.js',
+      skillLevel: 5,
+      description: '~ CompositionAPI',
+      chips: ['framework']
+    },
+    {
+      title: 'React',
+      skillLevel: 3,
+      description: '~ CompositionAPI',
+      chips: ['framework']
+    },
+    {
+      title: 'Flutter',
+      skillLevel: 2,
+      description: '~ CompositionAPI',
+      chips: ['framework']
+    },
+  ]
 
   // method
 
@@ -36,68 +74,53 @@ const Skills: React.FC<propsInterface> = (props) => {
 
   return <>
     <SkillsMain>
-
+      <div className='skill-card-group'>
+        {skillData.map(skill => (
+          <div
+            key={skill.title}
+            className='skill-card'
+            style={{
+              width: `${
+                skill.skillLevel === 5 || skill.skillLevel === 4 || skill.skillLevel === 3
+                  ? 2 * 152
+                  : 152
+              }px`,
+              height: `${
+                skill.skillLevel === 5 || skill.skillLevel === 4
+                  ? 2 * 152
+                  : 152
+              }px`,
+            }}
+          >
+            {skill.title + skill.skillLevel}
+          </div>
+        ))}
+      </div>
     </SkillsMain>
   </>
 }
 
 const SkillsMain = styled.div`
   display: grid;
-  align-items: center;
+
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  overflow: scroll;
+
   ${mixins.screenSm} {
+    align-self: start;
     grid-template-rows: 64px 1fr;
   }
 
   ${mixins.screenLap} {
+    align-items: center;
     grid-template-columns: 128px 1fr;
   }
 
-  width: 100%;
-
-  .name {
-    display: grid;
-
-    ${mixins.screenSm} {
-      margin-left: 0px;
-    }
-    ${mixins.screenLap} {
-      margin-left: 24px;
-    }
-
-    padding: 24px 0px;
-
-    &-top {
-      display: flex;
-      align-items: center;
-      justify-items: center;
-      align-content: flex-start;
-    }
-
-    &-bottom {
-      grid-row: 2;
-
-      margin-top: 16px;
-
-      display: flex;
-      align-items: flex-start;
-      justify-items: center;
-
-      ${mixins.screenSm} {
-        flex-flow: column;
-
-        div {
-          margin-top: 16px;
-        }
-      }
-
-      ${mixins.screenLap} {
-        grid-template-columns: 128px 1fr;
-
-        div {
-          margin-right: 16px;
-        }
-      }
-    }
+  .skill-card {
+    background-color: ${colors('white')};
   }
 `
 
