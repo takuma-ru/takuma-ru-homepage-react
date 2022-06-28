@@ -25,7 +25,7 @@ takuma-ruのポートフォリオサイト
 
 ## Deploy Service
 **use verccel**<br>
-https://takumaru-homepage.vercel.app/<br>
+[takumaru.dev](https://takumaru.dev)<br>
 
 ## ScreenShot
 none
