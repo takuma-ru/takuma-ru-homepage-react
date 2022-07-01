@@ -11,7 +11,9 @@ const Index: NextPageWithLayout = () => {
   return <>
     <IndexMain>
       <h1 className='my-name'>
-        Hi! I&#x27;m takuma-ru.
+        <span>Hi!&nbsp;</span>
+        <span>I&#x27;m&nbsp;</span>
+        <span>takuma-ru.</span>
       </h1>
     </IndexMain>
   </>
@@ -20,14 +22,21 @@ const Index: NextPageWithLayout = () => {
 const IndexMain = styled.div`
   width: 100%;
   height: 100%;
+  margin: 16px;
 
   display: flex;
   align-items: center;
   justify-content: start;
 
+  
   .my-name {
     position: relative;
+    width: 100%;
     margin: 0px;
+
+    span {
+      display: inline-block;
+    }
   }
 `
 
